@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import com.studentms.YearLevel?>
+
+<VBox xmlns="http://javafx.com/javafx/17"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.studentms.Controller"
+      spacing="0" styleClass="root-pane">
+
+    <!-- ── Header ── -->
+    <HBox styleClass="header">
+        <Label text="🎓 Student Record Management System" styleClass="header-title"/>
+    </HBox>
+
+    <!-- ── Body ── -->
+    <HBox spacing="20" styleClass="body">
+
+        <!-- Left: Input Form -->
+        <VBox spacing="12" styleClass="form-panel">
+            <Label text="Student Information" styleClass="section-title"/>
+
+            <Label text="Full Name" styleClass="field-label"/>
+            <TextField fx:id="txtName" promptText="Enter full name" styleClass="input-field"/>
+
+            <Label text="Course" styleClass="field-label"/>
+            <TextField fx:id="txtCourse" promptText="e.g. BSCS, BSIT" styleClass="input-field"/>
+
+            <Label text="Year Level" styleClass="field-label"/>
+            <ChoiceBox fx:id="cbYear" styleClass="input-field" maxWidth="Infinity"/>
+
+            <!-- Buttons -->
+            <VBox spacing="8" styleClass="btn-group">
+                <Button text="➕  Add Student"    onAction="#addStudent"    styleClass="btn-add"    maxWidth="Infinity"/>
+                <Button text="✏️  Update Student"  onAction="#updateStudent"  styleClass="btn-update" maxWidth="Infinity"/>
+                <Button text="🗑️  Delete Student"  onAction="#deleteStudent"  styleClass="btn-delete" maxWidth="Infinity"/>
+                <Button text="🔄  Clear Fields"    onAction="#clearFields"    styleClass="btn-clear"  maxWidth="Infinity"/>
+            </VBox>
+
+            <!-- Status label -->
+            <Label fx:id="lblStatus" text="" styleClass="status-label" wrapText="true"/>
+        </VBox>
+
+        <!-- Right: Table -->
+        <VBox spacing="8" HBox.hgrow="ALWAYS" styleClass="table-panel">
+            <Label text="Student Records" styleClass="section-title"/>
+            <TableView fx:id="table" VBox.vgrow="ALWAYS" styleClass="student-table">
+                <columns>
+                    <TableColumn fx:id="colId"     text="ID"         prefWidth="50"/>
+                    <TableColumn fx:id="colName"   text="Name"       prefWidth="180"/>
+                    <TableColumn fx:id="colCourse" text="Course"     prefWidth="120"/>
+                    <TableColumn fx:id="colYear"   text="Year Level" prefWidth="120"/>
+                </columns>
+                <placeholder>
+                    <Label text="No students found." style="-fx-text-fill: #888;"/>
+                </placeholder>
+            </TableView>
+        </VBox>
+
+    </HBox>
+
+    <!-- ── Footer ── -->
+    <HBox styleClass="footer">
+        <Label text="Student Management System  |  JavaFX + PostgreSQL" styleClass="footer-text"/>
+    </HBox>
+
+</VBox>
