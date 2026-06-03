@@ -15,7 +15,7 @@ A JavaFX + JDBC + PostgreSQL CRUD application for managing student records.
 ```
 StudentManagementSystem/
 ├── database/
-│   └── setup.sql              ← Run this in PostgreSQL first
+│   └── setup.sql              
 ├── src/main/
 │   ├── java/com/studentms/
 │   │   ├── MainApp.java        ← Entry point
